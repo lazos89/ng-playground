@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="valign-wrapper">
+    <form class="col s4 offset-s4">
+      <div class="row">
+        <div class="input-field col s6">
+          <input
+            placeholder="Placeholder"
+            id="first_name"
+            type="text"
+            class="validate"
+            [value]="item | titlecase"
+            (input)="item = $event.target?.value"
+          />
+          <label class="active" for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input
+            id="last_name"
+            type="text"
+            class="validate"
+            [value]="item2 | titlecase"
+            (input)="item2 = $event.target?.value"
+          />
+          <label class="active" for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input
+            type="date"
+            class="datepicker"
+            (input)="onDateChange($event.target.value)"
+          />
+          <label class="active" for="disabled">Date</label>
+        </div>
+        <div class="input-field col s6">
+          <p>{{ date | date: "MMMM d, yyyy" }}</p>
+          <label class="active" for="disabled">Formated Date</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="number" (input)="onAmountChange($event.target.value)" />
+          <label class="active" for="disabled">Amount</label>
+        </div>
+        <div class="input-field col s6">
+          <p>{{ amount | currency: "EUR":"symbol":"3.2-2" }}</p>
+          <label class="active" for="disabled">Formated Amount</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="number" (input)="onHeightChange($event.target.value)" />
+          <label class="active" for="disabled">Height</label>
+        </div>
+        <div class="input-field col s6">
+          <p>{{ height | number: "1.1-2" }}</p>
+          <label class="active" for="disabled">Formated Amount</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <p>{{ json | json }}</p>
+          <label class="active" for="disabled">Json </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="number" (input)="onMilesChange($event.target.value)" />
+          <label class="active" for="disabled">Miles</label>
+        </div>
+        <div class="input-field col s6">
+          <p>{{ miles | convertMiles: "cm" | number: "1.2-3" }}</p>
+          <label class="active" for="disabled">Custom Pipe Miles</label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

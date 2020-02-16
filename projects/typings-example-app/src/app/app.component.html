@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col l4 offset-l4">
+    <div class="center-align">
+      <h1 class="title">Title</h1>
+
+      <div>
+        <span
+          [class]="compare(item, enteredText[i])"
+          *ngFor="let item of splitRandomText(); let i = index"
+          >{{ item }}</span
+        >
+      </div>
+
+      <div class="input-field">
+        <input
+          (input)="onInput($event.target.value)"
+          id="first_name2"
+          type="text"
+          class="validate"
+        />
+        <label class="active" for="first_name2">First Name</label>
+      </div>
+
+      <div *ngIf="randomText === enteredText">
+        <h2>good!!</h2>
+      </div>
+    </div>
+  </div>
+</div>

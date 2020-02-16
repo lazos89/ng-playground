@@ -1,0 +1,18 @@
+# Stage 1: Build an Angular Docker Image
+FROM node:12-alpine  as build
+WORKDIR /app
+
+RUN npm install -g @angular/cli
+
+
+COPY ./package*.json /app/
+RUN npm install
+
+COPY . /app
+ARG configuration=production
+
+EXPOSE 4200
+
+RUN ng serve --host 0.0.0.0 --disable-host-check
+
+

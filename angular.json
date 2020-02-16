@@ -1,6 +1,252 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "typings-example-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/typings-example-app",
+      "sourceRoot": "projects/typings-example-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/typings-example-app",
+            "index": "projects/typings-example-app/src/index.html",
+            "main": "projects/typings-example-app/src/main.ts",
+            "polyfills": "projects/typings-example-app/src/polyfills.ts",
+            "tsConfig": "projects/typings-example-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/typings-example-app/src/favicon.ico",
+              "projects/typings-example-app/src/assets"
+            ],
+            "styles": [
+              "projects/typings-example-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/typings-example-app/src/environments/environment.ts",
+                  "with": "projects/typings-example-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "typings-example-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "typings-example-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "typings-example-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/typings-example-app/src/test.ts",
+            "polyfills": "projects/typings-example-app/src/polyfills.ts",
+            "tsConfig": "projects/typings-example-app/tsconfig.spec.json",
+            "karmaConfig": "projects/typings-example-app/karma.conf.js",
+            "assets": [
+              "projects/typings-example-app/src/favicon.ico",
+              "projects/typings-example-app/src/assets"
+            ],
+            "styles": [
+              "projects/typings-example-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/typings-example-app/tsconfig.app.json",
+              "projects/typings-example-app/tsconfig.spec.json",
+              "projects/typings-example-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/typings-example-app/e2e/protractor.conf.js",
+            "devServerTarget": "typings-example-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "typings-example-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "pipes-example": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/pipes-example",
+      "sourceRoot": "projects/pipes-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/pipes-example",
+            "index": "projects/pipes-example/src/index.html",
+            "main": "projects/pipes-example/src/main.ts",
+            "polyfills": "projects/pipes-example/src/polyfills.ts",
+            "tsConfig": "projects/pipes-example/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/pipes-example/src/favicon.ico",
+              "projects/pipes-example/src/assets"
+            ],
+            "styles": [
+              "projects/pipes-example/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/pipes-example/src/environments/environment.ts",
+                  "with": "projects/pipes-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "pipes-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "pipes-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pipes-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/pipes-example/src/test.ts",
+            "polyfills": "projects/pipes-example/src/polyfills.ts",
+            "tsConfig": "projects/pipes-example/tsconfig.spec.json",
+            "karmaConfig": "projects/pipes-example/karma.conf.js",
+            "assets": [
+              "projects/pipes-example/src/favicon.ico",
+              "projects/pipes-example/src/assets"
+            ],
+            "styles": [
+              "projects/pipes-example/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/pipes-example/tsconfig.app.json",
+              "projects/pipes-example/tsconfig.spec.json",
+              "projects/pipes-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/pipes-example/e2e/protractor.conf.js",
+            "devServerTarget": "pipes-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pipes-example:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": "ea175fb9-2535-41eb-b03f-a7863d1b126f"
+  },
+  "defaultProject": "typings-example-app"
 }
