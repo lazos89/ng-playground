@@ -1,0 +1,30 @@
+<ul class="pagination">
+  <li [appMyDirective]="{ disabled: currentPage === 0 }">
+    <a (click)="currentPage = currentPage + 1"
+      ><i class="material-icons">chevron_left</i></a
+    >
+  </li>
+  <ng-container *appMyStucturalDirective="albumsList.length; let i = index">
+    <li class="waves-effect" [appMyDirective]="{ active: i === currentPage }">
+      <a (click)="currentPage = i">{{ i + 1 }}</a>
+    </li>
+  </ng-container>
+  <li [appMyDirective]="{ disabled: currentPage === -1 }" class="waves-effect">
+    <a (click)="currentPage = currentPage + 1"
+      ><i class="material-icons">chevron_right</i></a
+    >
+  </li>
+</ul>
+<!-- <h2 appMyDirective [backgroundColor]="'orange'">
+  {{ albumsList[currentPage].title }}
+</h2>
+<h2 [appMyDirective]="'orange'">
+  {{ albumsList[currentPage].title }}
+</h2>
+<h2 [appMyDirective]="'orange'">
+  {{ albumsList[currentPage].title }}
+</h2> -->
+<h2>
+  {{ albumsList[currentPage].title }}
+</h2>
+<img class="materialboxed" [src]="albumsList[currentPage].thumbnailUrl" />
