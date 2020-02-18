@@ -12,9 +12,9 @@ export class AppComponent {
   constructor(private wikiSearch: WikipediaService) {}
 
   onSumbitted(term: string) {
-    this.wikiSearch.search(term).subscribe((res: any) => {
+    this.wikiSearch.search(term).subscribe(pages => {
       // console.log(res.query);
-      this.pages = res.query.search;
+      this.pages = pages;
     });
   }
 }
