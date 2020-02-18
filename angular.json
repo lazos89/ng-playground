@@ -728,6 +728,127 @@
           }
         }
       }
+    },
+    "card-payment-form": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/card-payment-form",
+      "sourceRoot": "projects/card-payment-form/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/card-payment-form",
+            "index": "projects/card-payment-form/src/index.html",
+            "main": "projects/card-payment-form/src/main.ts",
+            "polyfills": "projects/card-payment-form/src/polyfills.ts",
+            "tsConfig": "projects/card-payment-form/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/card-payment-form/src/favicon.ico",
+              "projects/card-payment-form/src/assets"
+            ],
+            "styles": [
+              "projects/card-payment-form/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/card-payment-form/src/environments/environment.ts",
+                  "with": "projects/card-payment-form/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "card-payment-form:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "card-payment-form:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "card-payment-form:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/card-payment-form/src/test.ts",
+            "polyfills": "projects/card-payment-form/src/polyfills.ts",
+            "tsConfig": "projects/card-payment-form/tsconfig.spec.json",
+            "karmaConfig": "projects/card-payment-form/karma.conf.js",
+            "assets": [
+              "projects/card-payment-form/src/favicon.ico",
+              "projects/card-payment-form/src/assets"
+            ],
+            "styles": [
+              "projects/card-payment-form/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/card-payment-form/tsconfig.app.json",
+              "projects/card-payment-form/tsconfig.spec.json",
+              "projects/card-payment-form/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/card-payment-form/e2e/protractor.conf.js",
+            "devServerTarget": "card-payment-form:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "card-payment-form:serve:production"
+            }
+          }
+        }
+      }
     }},
   "cli": {
     "analytics": "ea175fb9-2535-41eb-b03f-a7863d1b126f"

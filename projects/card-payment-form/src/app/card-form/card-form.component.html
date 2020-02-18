@@ -1,0 +1,33 @@
+<form [formGroup]="cardForm">
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        placeholder="Text input"
+        formControlName="name"
+      />
+    </div>
+    <ng-container
+      *ngIf="
+        cardForm.controls.name.errors &&
+        cardForm.controls.name.touched &&
+        cardForm.controls.name.dirty
+      "
+    >
+      <p *ngIf="cardForm.controls.name.errors.required" class="help is-danger">
+        Value is Required
+      </p>
+      <p *ngIf="cardForm.controls.name.errors.minlength" class="help is-danger">
+        Value must is
+        {{ cardForm.controls.name.errors.minlength.actualLength }}, must be
+        {{ cardForm.controls.name.errors.minlength.requiredLength }}
+      </p>
+    </ng-container>
+  </div>
+</form>
+
+<div>Value: {{ cardForm.value | json }}</div>
+<div>Valid: {{ cardForm.valid }}</div>
+<div>Erros: {{ cardForm.controls.name.errors | json }}</div>
