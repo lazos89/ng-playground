@@ -849,6 +849,127 @@
           }
         }
       }
+    },
+    "email-template-form": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/email-template-form",
+      "sourceRoot": "projects/email-template-form/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/email-template-form",
+            "index": "projects/email-template-form/src/index.html",
+            "main": "projects/email-template-form/src/main.ts",
+            "polyfills": "projects/email-template-form/src/polyfills.ts",
+            "tsConfig": "projects/email-template-form/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/email-template-form/src/favicon.ico",
+              "projects/email-template-form/src/assets"
+            ],
+            "styles": [
+              "projects/email-template-form/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/email-template-form/src/environments/environment.ts",
+                  "with": "projects/email-template-form/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "email-template-form:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "email-template-form:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "email-template-form:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/email-template-form/src/test.ts",
+            "polyfills": "projects/email-template-form/src/polyfills.ts",
+            "tsConfig": "projects/email-template-form/tsconfig.spec.json",
+            "karmaConfig": "projects/email-template-form/karma.conf.js",
+            "assets": [
+              "projects/email-template-form/src/favicon.ico",
+              "projects/email-template-form/src/assets"
+            ],
+            "styles": [
+              "projects/email-template-form/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/email-template-form/tsconfig.app.json",
+              "projects/email-template-form/tsconfig.spec.json",
+              "projects/email-template-form/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/email-template-form/e2e/protractor.conf.js",
+            "devServerTarget": "email-template-form:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "email-template-form:serve:production"
+            }
+          }
+        }
+      }
     }},
   "cli": {
     "analytics": "ea175fb9-2535-41eb-b03f-a7863d1b126f"
