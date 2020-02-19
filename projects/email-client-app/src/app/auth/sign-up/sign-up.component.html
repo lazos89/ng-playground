@@ -1,0 +1,47 @@
+<h3>Create Account</h3>
+
+<form class="ui form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <app-input
+    label="username"
+    inputType="text"
+    [control]="signUpForm.get('username')"
+  ></app-input>
+  <app-input
+    label="password"
+    inputType="password"
+    [control]="signUpForm.get('password')"
+  ></app-input>
+  <app-input
+    label="passwordConfirmation"
+    inputType="password"
+    [control]="signUpForm.get('passwordConfirmation')"
+  ></app-input>
+
+  <!-- <div>Values: {{ signUpForm.get("username").value | json }}</div>
+  <div>Valid: {{ signUpForm.valid }}</div>
+  <div>Error: {{ signUpForm.get("username").errors | json }}</div> -->
+  <div
+    *ngIf="
+      signUpForm.get('password').touched &&
+      signUpForm.get('passwordConfirmation').touched &&
+      signUpForm.errors?.passwordsDontMatch
+    "
+    class="ui red basic label"
+  >
+    Password and password confirmation must match
+  </div>
+
+  <div>
+    <button
+      class="ui submit button primary"
+      type="submit"
+      [disabled]="!signUpForm.valid"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+
+<div>Values: {{ signUpForm.value | json }}</div>
+<div>Valid: {{ signUpForm.valid }}</div>
+<div>Error: {{ signUpForm.errors | json }}</div>
