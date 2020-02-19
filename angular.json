@@ -970,6 +970,127 @@
           }
         }
       }
+    },
+    "math-form": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/math-form",
+      "sourceRoot": "projects/math-form/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/math-form",
+            "index": "projects/math-form/src/index.html",
+            "main": "projects/math-form/src/main.ts",
+            "polyfills": "projects/math-form/src/polyfills.ts",
+            "tsConfig": "projects/math-form/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/math-form/src/favicon.ico",
+              "projects/math-form/src/assets"
+            ],
+            "styles": [
+              "projects/math-form/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/math-form/src/environments/environment.ts",
+                  "with": "projects/math-form/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "math-form:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "math-form:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "math-form:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/math-form/src/test.ts",
+            "polyfills": "projects/math-form/src/polyfills.ts",
+            "tsConfig": "projects/math-form/tsconfig.spec.json",
+            "karmaConfig": "projects/math-form/karma.conf.js",
+            "assets": [
+              "projects/math-form/src/favicon.ico",
+              "projects/math-form/src/assets"
+            ],
+            "styles": [
+              "projects/math-form/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/math-form/tsconfig.app.json",
+              "projects/math-form/tsconfig.spec.json",
+              "projects/math-form/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/math-form/e2e/protractor.conf.js",
+            "devServerTarget": "math-form:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "math-form:serve:production"
+            }
+          }
+        }
+      }
     }},
   "cli": {
     "analytics": "ea175fb9-2535-41eb-b03f-a7863d1b126f"
