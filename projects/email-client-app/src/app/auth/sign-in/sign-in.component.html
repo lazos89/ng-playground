@@ -1,1 +1,43 @@
-<p>sign-in works!</p>
+<h3>Sign in</h3>
+
+<form class="ui form" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  <app-input
+    label="username"
+    inputType="text"
+    [control]="signInForm.get('username')"
+  ></app-input>
+  <app-input
+    label="password"
+    inputType="password"
+    [control]="signInForm.get('password')"
+  ></app-input>
+
+  <div
+    *ngIf="signInForm.get('password').touched && signInForm.errors"
+    class="ui red basic label"
+  >
+    <p *ngIf="signInForm.errors?.noConnection">
+      No Internet Connection Detected
+    </p>
+    <p *ngIf="signInForm.errors?.credentials">
+      Username or password incorrect
+    </p>
+    <p *ngIf="signInForm.errors?.unknownError">
+      No Internet Connection Detected
+    </p>
+  </div>
+
+  <div>
+    <button
+      class="ui submit button primary"
+      type="submit"
+      [disabled]="signInForm.invalid"
+    >
+      Sign In
+    </button>
+  </div>
+</form>
+
+<div>Values: {{ signInForm.value | json }}</div>
+<div>Valid: {{ signInForm.valid }}</div>
+<div>Error: {{ signInForm.errors | json }}</div>
