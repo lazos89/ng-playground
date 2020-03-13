@@ -10,6 +10,7 @@ export class ProductListComponent implements OnInit {
   imageMargin = 2;
   imageWidth = 50;
   showImage = false;
+  pageTitle = "Product List";
   private _listFilter: string;
   public get listFilter() {
     return this._listFilter;
@@ -91,5 +92,9 @@ export class ProductListComponent implements OnInit {
         product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1
       // product.productName.toLocaleLowerCase().includes(filterBy)
     );
+  }
+  onRatingClicked(message: string) {
+    this.pageTitle = "Product List: " + message;
+    console.log(message);
   }
 }
