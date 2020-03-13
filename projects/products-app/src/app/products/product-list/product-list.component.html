@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header">
+    Product List
+  </div>
+  <div class="card-content">
+    <div class="columns">
+      <div class="column is-one-fifth">Filter By</div>
+      <div class="column is-one-fifth">
+        <input type="text" />
+      </div>
+    </div>
+    <div *ngFor="let item of [1, 2, 3, 4, 5]">
+      {{ item }}
+    </div>
+    <div *ngIf="">
+      {{ products ? "xax" : "yeyeyeye" }}
+      {{ products.length }}
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            <button class="button is-primary">
+              Show Image
+            </button>
+          </th>
+          <th>Product</th>
+          <th>Code</th>
+          <th>Avaliable</th>
+          <th>Price</th>
+          <th>5 Star Rating</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
