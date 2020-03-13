@@ -1205,7 +1205,9 @@
             "aot": true,
             "assets": [
               "projects/products-app/src/favicon.ico",
-              "projects/products-app/src/assets"
+              "projects/products-app/src/assets",
+              "projects/products-app/src/api"
+
             ],
             "styles": [
               "node_modules/font-awesome/css/font-awesome.css",
@@ -1267,7 +1269,7 @@
             "karmaConfig": "projects/products-app/karma.conf.js",
             "assets": [
               "projects/products-app/src/favicon.ico",
-              "projects/products-app/src/assets"
+              "projects/products-app/src/assets",
             ],
             "styles": [
               "projects/products-app/src/styles.scss"
