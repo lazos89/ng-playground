@@ -115,5 +115,9 @@
       </div>
     </div>
   </form>
+
+  <p class="help is-danger" *ngIf="postError">
+    {{ postErrorMessage }}
+  </p>
   {{ userSettings | json }}
 </div>
