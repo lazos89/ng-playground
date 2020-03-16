@@ -21,6 +21,7 @@ export class ProductDetailGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    console.log("ProductDetailGuard");
     let id = +next.params["id"];
     if (!id || id < 1) {
       alert("Invalid product Id");

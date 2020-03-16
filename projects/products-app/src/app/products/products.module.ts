@@ -1,13 +1,12 @@
-import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ProductListComponent } from "./product-list/product-list.component";
-import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { ConvertToSpacesPipe } from "../core/pipes/convert-to-spaces.pipe";
 import { SharedModule } from "../shared/shared.module";
-import { HttpClientModule } from "@angular/common/http";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
-import { RouterModule } from "@angular/router";
+import { ProductListComponent } from "./product-list/product-list.component";
+import { ProductRoutingModule } from "./product-routing.module";
 
 @NgModule({
   declarations: [
@@ -15,13 +14,6 @@ import { RouterModule } from "@angular/router";
     ConvertToSpacesPipe,
     ProductDetailsComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    SharedModule,
-    HttpClientModule,
-    RouterModule
-  ],
-  exports: [ProductListComponent]
+  imports: [ProductRoutingModule, SharedModule, HttpClientModule]
 })
 export class ProductsModule {}

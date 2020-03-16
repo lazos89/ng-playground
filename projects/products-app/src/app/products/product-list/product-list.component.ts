@@ -29,7 +29,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   filteredProducts: IProductList[];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) {
+    console.log("constructor");
+  }
   ngOnDestroy(): void {
     this.productSubscription.unsubscribe();
   }
