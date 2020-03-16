@@ -14,6 +14,6 @@ import { ProductRoutingModule } from "./product-routing.module";
     ConvertToSpacesPipe,
     ProductDetailsComponent
   ],
-  imports: [ProductRoutingModule, SharedModule, HttpClientModule]
+  imports: [SharedModule, HttpClientModule, ProductRoutingModule]
 })
 export class ProductsModule {}
