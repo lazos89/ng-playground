@@ -1,31 +1,59 @@
 <div class="container">
   <h2>User Settings</h2>
 
-  <form>
+  <form #form="ngForm">
     <div class="field">
       <label class="label">Name</label>
       <div class="control">
-        <input class="input" type="text" placeholder="Text input" />
+        <input
+          class="input"
+          type="text"
+          placeholder="Text input"
+          name="name"
+          [(ngModel)]="userSettings.name"
+        />
       </div>
     </div>
     <div class="field is-grouped">
       <label class="checkbox">
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          name="offers"
+          [(ngModel)]="userSettings.emailOffers"
+        />
         Email Special Offers
       </label>
     </div>
     <div class="field">
       <div class="control radio-list">
         <label class="radio">
-          <input type="radio" name="answer" />
+          <input
+            type="radio"
+            value="light"
+            id="light"
+            name="interface"
+            [(ngModel)]="userSettings.interfaceStyle"
+          />
           Light
         </label>
         <label class="radio">
-          <input type="radio" name="answer" />
+          <input
+            type="radio"
+            value="medium"
+            id="medium"
+            name="interface"
+            [(ngModel)]="userSettings.interfaceStyle"
+          />
           Medium
         </label>
         <label class="radio">
-          <input type="radio" name="answer" />
+          <input
+            type="radio"
+            value="dark"
+            id="dark"
+            name="interface"
+            [(ngModel)]="userSettings.interfaceStyle"
+          />
           Dark
         </label>
       </div>
@@ -33,30 +61,40 @@
     <div class="field">
       <label class="label">Subscription Type</label>
 
-      <div class="select ">
-        <select>
-          <option>Monthly</option>
-          <option>Annual</option>
-          <option>Lifetime</option>
+      <div class="select">
+        <select
+          name="select"
+          name="subscription"
+          [(ngModel)]="userSettings.subscriptionType"
+        >
+          <option name="monthly">Monthly</option>
+          <option name="annual">Annual</option>
+          <option name="lifitime">Lifetime</option>
         </select>
       </div>
     </div>
 
     <div class="field">
-      <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+      <textarea
+        class="textarea"
+        placeholder="e.g. Hello world"
+        name="notes"
+        [(ngModel)]="userSettings.notes"
+      ></textarea>
     </div>
 
     <div class="field">
       <p class="control has-icons-left">
-        <input class="input" type="password" placeholder="Password" />
+        <input
+          class="input"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
         <span class="icon is-small is-left">
           <i class="fa fa-lock"></i>
         </span>
       </p>
-    </div>
-    <div class="field">
-      <label class="label">Testing </label>
-      <input type="date" id="date" name="date" />
     </div>
     <div class="field is-grouped">
       <div class="control">
@@ -67,4 +105,5 @@
       </div>
     </div>
   </form>
+  {{ userSettings | json }}
 </div>
