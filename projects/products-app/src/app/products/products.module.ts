@@ -6,11 +6,22 @@ import { FormsModule } from "@angular/forms";
 import { ConvertToSpacesPipe } from "../core/pipes/convert-to-spaces.pipe";
 import { SharedModule } from "../shared/shared.module";
 import { HttpClientModule } from "@angular/common/http";
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsComponent } from "./product-details/product-details.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
-  declarations: [ProductListComponent, ConvertToSpacesPipe, ProductDetailsComponent],
-  imports: [CommonModule, FormsModule, SharedModule, HttpClientModule],
+  declarations: [
+    ProductListComponent,
+    ConvertToSpacesPipe,
+    ProductDetailsComponent
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    SharedModule,
+    HttpClientModule,
+    RouterModule
+  ],
   exports: [ProductListComponent]
 })
 export class ProductsModule {}

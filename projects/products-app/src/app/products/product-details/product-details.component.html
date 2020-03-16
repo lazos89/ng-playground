@@ -1,5 +1,10 @@
-<div class="card" *ngIf="product">
-  <div class="card-header">
-    {{ pageTitle + ":" + product.productName }}
+<div class="container">
+  <div class="card" *ngIf="product">
+    <div class="card-header">
+      {{ pageTitle + ":" + product.productName }}
+    </div>
   </div>
+  <footer class="card-footer">
+    <a class="card-footer-item" (click)="onBack()">Back</a>
+  </footer>
 </div>
