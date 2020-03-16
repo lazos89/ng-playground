@@ -1269,7 +1269,7 @@
             "karmaConfig": "projects/products-app/karma.conf.js",
             "assets": [
               "projects/products-app/src/favicon.ico",
-              "projects/products-app/src/assets",
+              "projects/products-app/src/assets"
             ],
             "styles": [
               "projects/products-app/src/styles.scss"
@@ -1329,18 +1329,17 @@
               "projects/templete-form-example/src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.css",
               "projects/templete-form-example/src/styles.scss"
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/templete-form-example/src/environments/environment.ts",
-                  "with": "projects/templete-form-example/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "projects/templete-form-example/src/environments/environment.ts",
+                "with": "projects/templete-form-example/src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -1349,8 +1348,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
