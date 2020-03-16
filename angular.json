@@ -1303,6 +1303,127 @@
           }
         }
       }
+    },
+    "templete-form-example": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/templete-form-example",
+      "sourceRoot": "projects/templete-form-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/templete-form-example",
+            "index": "projects/templete-form-example/src/index.html",
+            "main": "projects/templete-form-example/src/main.ts",
+            "polyfills": "projects/templete-form-example/src/polyfills.ts",
+            "tsConfig": "projects/templete-form-example/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/templete-form-example/src/favicon.ico",
+              "projects/templete-form-example/src/assets"
+            ],
+            "styles": [
+              "projects/templete-form-example/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/templete-form-example/src/environments/environment.ts",
+                  "with": "projects/templete-form-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "templete-form-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "templete-form-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "templete-form-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/templete-form-example/src/test.ts",
+            "polyfills": "projects/templete-form-example/src/polyfills.ts",
+            "tsConfig": "projects/templete-form-example/tsconfig.spec.json",
+            "karmaConfig": "projects/templete-form-example/karma.conf.js",
+            "assets": [
+              "projects/templete-form-example/src/favicon.ico",
+              "projects/templete-form-example/src/assets"
+            ],
+            "styles": [
+              "projects/templete-form-example/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/templete-form-example/tsconfig.app.json",
+              "projects/templete-form-example/tsconfig.spec.json",
+              "projects/templete-form-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/templete-form-example/e2e/protractor.conf.js",
+            "devServerTarget": "templete-form-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "templete-form-example:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "cli": {
