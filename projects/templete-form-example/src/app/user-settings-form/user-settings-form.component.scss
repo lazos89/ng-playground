@@ -2,9 +2,16 @@
   .radio {
     display: block;
 
-    &+.radio {
+    & + .radio {
       margin-left: 0;
-      margin-top: .5em;
+      margin-top: 0.5em;
     }
   }
+}
+// .ng-invalid:not(form).ng-touched {
+//   border: 1px solid red;
+// }
+
+.field-error {
+  border: 1px solid red;
 }

@@ -1,19 +1,26 @@
 <div class="container">
   <h2>User Settings</h2>
 
-  <form #form="ngForm">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="field">
       <label class="label">Name</label>
       <div class="control">
         <input
           class="input"
           type="text"
+          required
           placeholder="Text input"
           name="name"
+          [class.field-error]="form.submitted && nameField.invalid"
+          (blur)="onBlur(nameField)"
           [(ngModel)]="userSettings.name"
+          #nameField="ngModel"
         />
       </div>
     </div>
+    <p class="help is-danger" *ngIf="form.submitted && nameField.invalid">
+      This field is required
+    </p>
     <div class="field is-grouped">
       <label class="checkbox">
         <input
@@ -80,6 +87,7 @@
         placeholder="e.g. Hello world"
         name="notes"
         [(ngModel)]="userSettings.notes"
+        required
       ></textarea>
     </div>
 
@@ -98,7 +106,9 @@
     </div>
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-link">Submit</button>
+        <button class="button is-link" type="submit">
+          Submit
+        </button>
       </div>
       <div class="control">
         <button class="button is-link is-light">Cancel</button>
