@@ -15,6 +15,9 @@ export class AuthService {
   constructor(private route: Router) {}
 
   login(userName: string, password: string): void {
+    console.log(userName);
+    console.log(password);
+
     if (!userName || !password) {
       // this.messageService.addMessage('Please enter your userName and password');
       return;
@@ -33,6 +36,8 @@ export class AuthService {
       userName: userName,
       isAdmin: false,
     };
+    console.log(this.currentUser);
+    console.log(this.isLoggedIn);
     // this.messageService.addMessage(`User: ${this.currentUser.userName} logged in`);
   }
 

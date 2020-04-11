@@ -11,7 +11,7 @@ import { AuthService } from "../auth.service";
 export class LoginComponent implements OnInit {
   errorMessage: string;
   loginForm;
-  constructor(private route: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(userName, password);
 
       // Navigate to the Product List page after log in.
+      this.router.navigate(["/products"]);
     } else {
       this.errorMessage = "Please enter a user name and password.";
     }
