@@ -4,12 +4,12 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
-  Router
+  Router,
 } from "@angular/router";
 import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class ProductDetailGuard implements CanActivate {
   constructor(private router: Router) {}
@@ -23,11 +23,11 @@ export class ProductDetailGuard implements CanActivate {
     | UrlTree {
     console.log("ProductDetailGuard");
     let id = +next.params["id"];
-    if (!id || id < 1) {
-      alert("Invalid product Id");
-      this.router.navigate(["/products"]);
-      return false;
-    }
+    // if (!id || id < 0) {
+    //   alert("Invalid product Id");
+    //   this.router.navigate(["/products"]);
+    //   return false;
+    // }
     return true;
   }
 }

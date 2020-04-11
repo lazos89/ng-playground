@@ -20,14 +20,10 @@ export class AppComponent implements OnInit {
   }
 
   constructor(private authService: AuthService, private router: Router) {}
-  ngOnInit(): void {
-    console.log(this.isLoggedIn);
-    console.log("this.isLoggedIn");
-  }
+  ngOnInit(): void {}
 
   logOut(): void {
     this.authService.logout();
     this.router.navigateByUrl("welcome");
-    console.log("Log out");
   }
 }

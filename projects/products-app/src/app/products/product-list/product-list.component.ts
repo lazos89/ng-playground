@@ -29,9 +29,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   filteredProducts: IProduct[];
 
-  constructor(private productService: ProductService) {
-    console.log("constructor");
-  }
+  constructor(private productService: ProductService) {}
   ngOnDestroy(): void {
     this.productSubscription.unsubscribe();
   }
@@ -39,7 +37,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.productSubscription = this.productService.getProducts().subscribe(
       (products) => {
-        console.log("ngOnInit");
         this.products = products;
         this.filteredProducts = this.products;
       },
@@ -65,6 +62,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
   onRatingClicked(message: string) {
     this.pageTitle = "Product List: " + message;
-    console.log(message);
+    // console.log(message);
   }
 }

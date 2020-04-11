@@ -20,6 +20,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     let id = +this.route.snapshot.paramMap.get("id");
     this.pageTitle = `Product ${id} Details`;
+    this.getProduct(id);
     // this.product = {
     //   id: id,
     //   productName: "Leaf Rake",
@@ -32,8 +33,25 @@ export class ProductDetailsComponent implements OnInit {
     // };
   }
 
-  getProduct() {
-    this.prodcutService.getProducts();
+  getProduct(id: number) {
+    this.prodcutService.getProduct(id).subscribe(
+      (product) => {
+        this.onProductRetrieved(product);
+      },
+      (err) => {
+        console.log(`Error , ${err}`);
+      }
+    );
+  }
+
+  onProductRetrieved(product: IProduct): void {
+    this.product = product;
+
+    if (this.product) {
+      this.pageTitle = `Product Detail: ${this.product.productName}`;
+    } else {
+      this.pageTitle = "No product found";
+    }
   }
   onBack() {
     this.router.navigate(["/products"]);

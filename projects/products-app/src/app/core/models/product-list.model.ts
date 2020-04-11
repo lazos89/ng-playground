@@ -13,6 +13,6 @@ export interface IProduct {
 
 /* Defines the product entity */
 export interface ProductResolved {
-  product: Product;
+  product: IProduct;
   error?: any;
 }

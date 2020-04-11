@@ -40,7 +40,7 @@
                   />
                 </td>
                 <td>
-                  <a [routerLink]="['/products', product.productId]">{{
+                  <a [routerLink]="['/products', product.id]">{{
                     product.productName | uppercase
                   }}</a>
                 </td>
@@ -62,7 +62,7 @@
                 <td>
                   <a
                     class="fas fa-edit"
-                    [routerLink]="['/products', product.productId, 'edit']"
+                    [routerLink]="['/products', product.id, 'edit']"
                   ></a>
                 </td>
               </tr>
