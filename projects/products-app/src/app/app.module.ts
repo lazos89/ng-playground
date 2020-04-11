@@ -6,15 +6,18 @@ import { ProductsModule } from "./products/products.module";
 import { WelcomeComponent } from "./home/welcome.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./auth/login/login.component";
+import { InMemoryWebApiModule } from "angular-in-memory-web-api";
+import { ProductData } from "../api/products/products-data";
 
 @NgModule({
   declarations: [AppComponent, WelcomeComponent, LoginComponent],
   imports: [
     BrowserModule,
     ProductsModule,
-    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

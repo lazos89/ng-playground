@@ -59,6 +59,12 @@
                     (ratingClicked)="onRatingClicked($event)"
                   ></app-star-component>
                 </td>
+                <td>
+                  <a
+                    class="fas fa-edit"
+                    [routerLink]="['/products', product.productId, 'edit']"
+                  ></a>
+                </td>
               </tr>
             </tbody>
           </table>

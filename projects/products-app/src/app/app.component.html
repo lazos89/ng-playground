@@ -31,7 +31,14 @@
         [routerLink]="['/products']"
         routerLinkActive="is-active"
       >
-        Products
+        Products List
+      </a>
+      <a
+        class="navbar-item"
+        [routerLink]="['/products', 0, 'edit']"
+        routerLinkActive="is-active"
+      >
+        Add Products
       </a>
     </div>
     <div class="navbar-end">

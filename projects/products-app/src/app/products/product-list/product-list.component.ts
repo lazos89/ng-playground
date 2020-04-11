@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { IProductList } from "../../core/models/product-list.model";
+import { IProduct } from "../../core/models/product-list.model";
 import { ProductService } from "../product.service";
 import { Observable, Subscription } from "rxjs";
 
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.scss"]
+  styleUrls: ["./product-list.component.scss"],
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   productSubscription: Subscription;
@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   showImage = false;
   pageTitle = "Product List";
   errorMessage = "";
-  products: IProductList[];
+  products: IProduct[];
   private _listFilter: string;
   public get listFilter() {
     return this._listFilter;
@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       : this.products;
   }
 
-  filteredProducts: IProductList[];
+  filteredProducts: IProduct[];
 
   constructor(private productService: ProductService) {
     console.log("constructor");
@@ -38,12 +38,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.productSubscription = this.productService.getProducts().subscribe(
-      products => {
+      (products) => {
         console.log("ngOnInit");
         this.products = products;
         this.filteredProducts = this.products;
       },
-      error => (this.errorMessage = error)
+      (error) => (this.errorMessage = error)
     );
 
     // .subscribe({
@@ -55,10 +55,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
   onShowClicked() {
     this.showImage = !this.showImage;
   }
-  performFilter(filterBy: string): IProductList[] {
+  performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.products.filter(
-      product =>
+      (product) =>
         product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1
       // product.productName.toLocaleLowerCase().includes(filterBy)
     );
