@@ -40,9 +40,14 @@
                   />
                 </td>
                 <td>
-                  <a [routerLink]="['/products', product.id]">{{
-                    product.productName | uppercase
-                  }}</a>
+                  <a
+                    [routerLink]="['/products', product.id]"
+                    [queryParams]="{
+                      filterBy: listFilter,
+                      showImage: showImage
+                    }"
+                    >{{ product.productName | uppercase }}</a
+                  >
                 </td>
                 <td>
                   {{ product.productCode | lowercase | convertToSpaces: "-" }}

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../product.service";
 import { IProduct } from "../../core/models/product-list.model";
 import { ActivatedRoute, Router } from "@angular/router";
+import { MessageService } from "../../message/message.service";
 
 @Component({
   selector: "app-product-edit",
@@ -17,7 +18,8 @@ export class ProductEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductService // private messageService: MessageService
+    private productService: ProductService,
+    private messageService: MessageService
   ) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -89,7 +91,7 @@ export class ProductEditComponent implements OnInit {
 
   onSaveComplete(message?: string): void {
     if (message) {
-      // this.messageService.addMessage(message);
+      this.messageService.addMessage(message);
     }
 
     // Navigate back to the product list

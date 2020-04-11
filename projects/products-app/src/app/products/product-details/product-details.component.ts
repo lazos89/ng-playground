@@ -54,6 +54,6 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
   onBack() {
-    this.router.navigate(["/products"]);
+    this.router.navigate(["/products"], { queryParamsHandling: "preserve" });
   }
 }
