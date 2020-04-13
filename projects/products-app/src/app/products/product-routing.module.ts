@@ -4,6 +4,7 @@ import { ProductDetailsComponent } from "./product-details/product-details.compo
 import { ProductDetailGuard } from "./product-detail.guard";
 import { NgModule } from "@angular/core";
 import { ProductEditComponent } from "./product-edit/product-edit.component";
+import { ProductResolver } from "./product-resolver.service";
 
 export const routes: Routes = [
   { path: "products", component: ProductListComponent },
@@ -11,11 +12,13 @@ export const routes: Routes = [
     path: "products/:id",
     canActivate: [ProductDetailGuard],
     component: ProductDetailsComponent,
+    resolve: { resolveData: ProductResolver },
   },
   {
     path: "products/:id/edit",
     canActivate: [ProductDetailGuard],
     component: ProductEditComponent,
+    resolve: { resolveData: ProductResolver },
   },
 ];
 

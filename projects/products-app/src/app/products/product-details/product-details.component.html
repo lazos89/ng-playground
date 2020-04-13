@@ -61,10 +61,15 @@
         </div>
       </div>
     </div>
+    <footer class="card-footer">
+      <a class="card-footer-item" (click)="onBack()">Back</a>
+      <a class="button" [routerLink]="['/products', product.id, 'edit']">
+        Edit</a
+      >
+    </footer>
   </div>
+</div>
 
-  <footer class="card-footer">
-    <a class="card-footer-item" (click)="onBack()">Back</a>
-    <a class="button" [routerLink]="['/products', product.id, 'edit']"> Edit</a>
-  </footer>
+<div class="notification is-danger" *ngIf="errorMessage">
+  {{ errorMessage }}
 </div>

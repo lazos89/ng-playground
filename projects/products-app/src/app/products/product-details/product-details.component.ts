@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { IProduct } from "../../core/models/product-list.model";
+import {
+  IProduct,
+  IProductResolved,
+} from "../../core/models/product-list.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductService } from "../product.service";
 
@@ -18,9 +21,17 @@ export class ProductDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let id = +this.route.snapshot.paramMap.get("id");
-    this.pageTitle = `Product ${id} Details`;
-    this.getProduct(id);
+    const resolveData: IProductResolved = this.route.snapshot.data[
+      "resolveData"
+    ];
+    this.errorMessage = resolveData.error;
+    this.onProductRetrieved(resolveData.product);
+    console.log(resolveData);
+
+    // let id = +this.route.snapshot.paramMap.get("id");
+    // this.pageTitle = `Product ${id} Details`;
+    // this.getProduct(id);
+
     // this.product = {
     //   id: id,
     //   productName: "Leaf Rake",
