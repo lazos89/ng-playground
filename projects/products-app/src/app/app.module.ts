@@ -6,21 +6,22 @@ import { AppComponent } from "./app.component";
 import { ProductsModule } from "./products/products.module";
 import { WelcomeComponent } from "./home/welcome.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { LoginComponent } from "./auth/login/login.component";
 import { InMemoryWebApiModule } from "angular-in-memory-web-api";
 import { ProductData } from "../api/products/products-data";
 import { MessageModule } from "./message/message.module";
+import { AuthModule } from "./auth/auth.module";
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, LoginComponent],
+  declarations: [AppComponent, WelcomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MessageModule,
+    AuthModule,
     ProductsModule,
     InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
     FormsModule,
     ReactiveFormsModule,
-    MessageModule,
     AppRoutingModule,
   ],
   providers: [],
