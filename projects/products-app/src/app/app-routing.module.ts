@@ -5,7 +5,7 @@ import { PageNotFoundComponent } from "./shared/page-not-found/page-not-found.co
 import { LoginComponent } from "./auth/login/login.component";
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
+  // { path: "login", component: LoginComponent },
   { path: "welcome", component: WelcomeComponent },
   { path: "", pathMatch: "full", redirectTo: "welcome" },
   { path: "**", component: PageNotFoundComponent },

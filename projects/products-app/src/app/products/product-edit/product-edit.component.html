@@ -6,13 +6,21 @@
   <div class="card-content" *ngIf="product">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
-        <li>
-          <a [routerLink]="['info']" routerLinkActive="router-link-active"
-            >Basic Inforamtion</a
-          >
+        <li [routerLink]="['info']" routerLinkActive="is-active">
+          <a
+            >Basic Inforamtion
+            <span [ngClass]="{ 'fas fa-exclamation': !isValid('info') }"> </span
+          ></a>
         </li>
-        <li>
-          <a [routerLink]="['tags']" aria-current="page">Search Tags</a>
+        <li
+          routerLinkActive="is-active"
+          [routerLink]="['tags']"
+          aria-current="page"
+        >
+          <a
+            >Search Tags
+            <span [ngClass]="{ 'fas fa-exclamation': !isValid('tags') }"> </span
+          ></a>
         </li>
       </ul>
     </nav>
