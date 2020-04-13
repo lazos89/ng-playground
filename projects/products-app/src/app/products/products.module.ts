@@ -8,13 +8,17 @@ import { ProductDetailsComponent } from "./product-details/product-details.compo
 import { ProductListComponent } from "./product-list/product-list.component";
 import { ProductRoutingModule } from "./product-routing.module";
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductEditInfoComponent } from './product-edit/product-edit-info/product-edit-info.component';
+import { ProductEditTagsComponent } from './product-edit/product-edit-tags/product-edit-tags.component';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ConvertToSpacesPipe,
     ProductDetailsComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    ProductEditInfoComponent,
+    ProductEditTagsComponent
   ],
   imports: [SharedModule, HttpClientModule, ProductRoutingModule]
 })

@@ -4,7 +4,51 @@
   </div>
 
   <div class="card-content" *ngIf="product">
-    <form novalidate #productForm="ngForm">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li>
+          <a [routerLink]="['info']" routerLinkActive="router-link-active"
+            >Basic Inforamtion</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['tags']" aria-current="page">Search Tags</a>
+        </li>
+      </ul>
+    </nav>
+
+    <router-outlet></router-outlet>
+    <div class="columns is-one-fifth">
+      <div class="column is-two-fifths">
+        <button
+          class="button mr-3"
+          style="width: 80px;"
+          type="button"
+          title="Save your enterd data"
+          [disabled]="!isValid()"
+          (click)="saveProduct()"
+        >
+          Save
+        </button>
+        <button
+          class="button mr-3"
+          style="width: 80px;"
+          type="button"
+          title="Cancel your edits"
+          [routerLink]="['/products']"
+        >
+          Cancel
+        </button>
+        <button
+          class="button is-warning"
+          style="width: 80px;"
+          type="button"
+          title="Delete this product"
+          (click)="deleteProduct()"
+        >
+          Delete
+        </button>
+        <!-- <form novalidate #productForm="ngForm">
       <div class="columns">
         <label class="column is-one-quarter label" for="productNameId"
           >Product Name</label
@@ -117,10 +161,12 @@
           </button>
         </div>
       </div>
-    </form>
-  </div>
-</div>
+    </form> -->
+      </div>
+    </div>
 
-<div class="notification is-danger" *ngIf="errorMessage">
-  {{ errorMessage }}
+    <div class="notification is-danger" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+  </div>
 </div>
