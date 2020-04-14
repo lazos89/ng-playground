@@ -7,9 +7,9 @@ import { SharedModule } from "../shared/shared.module";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 import { ProductRoutingModule } from "./product-routing.module";
-import { ProductEditComponent } from './product-edit/product-edit.component';
-import { ProductEditInfoComponent } from './product-edit/product-edit-info/product-edit-info.component';
-import { ProductEditTagsComponent } from './product-edit/product-edit-tags/product-edit-tags.component';
+import { ProductEditComponent } from "./product-edit/product-edit.component";
+import { ProductEditInfoComponent } from "./product-edit/product-edit-info/product-edit-info.component";
+import { ProductEditTagsComponent } from "./product-edit/product-edit-tags/product-edit-tags.component";
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { ProductEditTagsComponent } from './product-edit/product-edit-tags/produ
     ProductDetailsComponent,
     ProductEditComponent,
     ProductEditInfoComponent,
-    ProductEditTagsComponent
+    ProductEditTagsComponent,
   ],
-  imports: [SharedModule, HttpClientModule, ProductRoutingModule]
+  imports: [SharedModule, ProductRoutingModule],
 })
 export class ProductsModule {}

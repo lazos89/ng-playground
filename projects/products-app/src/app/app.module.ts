@@ -10,6 +10,7 @@ import { InMemoryWebApiModule } from "angular-in-memory-web-api";
 import { ProductData } from "../api/products/products-data";
 import { MessageModule } from "./message/message.module";
 import { AuthModule } from "./auth/auth.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent, WelcomeComponent],
@@ -18,7 +19,7 @@ import { AuthModule } from "./auth/auth.module";
     BrowserAnimationsModule,
     MessageModule,
     AuthModule,
-    ProductsModule,
+    HttpClientModule,
     InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
     FormsModule,
     ReactiveFormsModule,

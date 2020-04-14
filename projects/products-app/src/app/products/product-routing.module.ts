@@ -12,31 +12,25 @@ import { ProductEditGuard } from "./product-edit/product-edit.guard";
 
 export const routes: Routes = [
   {
-    path: "products",
-    canActivate: [AuthGuard],
+    path: "",
+    component: ProductListComponent,
+  },
+  {
+    path: ":id",
+    canActivate: [ProductDetailGuard],
+    component: ProductDetailsComponent,
+    resolve: { resolveData: ProductResolver },
+  },
+  {
+    path: ":id/edit",
+    canActivate: [ProductDetailGuard],
+    canDeactivate: [ProductEditGuard],
+    component: ProductEditComponent,
+    resolve: { resolveData: ProductResolver },
     children: [
-      {
-        path: "",
-        component: ProductListComponent,
-      },
-      {
-        path: ":id",
-        canActivate: [ProductDetailGuard],
-        component: ProductDetailsComponent,
-        resolve: { resolveData: ProductResolver },
-      },
-      {
-        path: ":id/edit",
-        canActivate: [ProductDetailGuard],
-        canDeactivate: [ProductEditGuard],
-        component: ProductEditComponent,
-        resolve: { resolveData: ProductResolver },
-        children: [
-          { path: "", pathMatch: "full", redirectTo: "info" },
-          { path: "info", component: ProductEditInfoComponent },
-          { path: "tags", component: ProductEditTagsComponent },
-        ],
-      },
+      { path: "", pathMatch: "full", redirectTo: "info" },
+      { path: "info", component: ProductEditInfoComponent },
+      { path: "tags", component: ProductEditTagsComponent },
     ],
   },
 ];
